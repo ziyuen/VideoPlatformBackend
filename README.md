@@ -2,7 +2,7 @@
 
 A video platform that users can watch and publish their videos(new features are on the way).
 
-Frontend is a single-page application using React, Redux, and Material UI. You can check the frontend repo in this [link](https://github.com/ziyuen/VideoPlatformFrontend).
+Frontend is a single-page application using React, Redux, and Material UI. You can check the frontend repo from this [link](https://github.com/ziyuen/VideoPlatformFrontend).
 
 Backend is a RESTful service using Spring Boot, Spring Data JPA, MySQL, and Spring Security.
  
