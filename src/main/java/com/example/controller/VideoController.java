@@ -7,7 +7,7 @@ import com.example.model.VideoChunk;
 import com.example.service.StorageService;
 import com.example.service.VideoChunkService;
 import com.example.service.VideoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,13 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller // This means that this class is a Controller
+@AllArgsConstructor
 public class VideoController {
-    @Autowired
-    private VideoService videoService;
-    @Autowired
-    private VideoChunkService videoChunkService;
-    @Autowired
-    private StorageService storageService;
+    private final VideoService videoService;
+    private final VideoChunkService videoChunkService;
+    private final StorageService storageService;
 
     @GetMapping(path="/videoMetas") // get all public video metas
     public ResponseEntity<List<VideoMetaResponse>> getVideoMetas() {

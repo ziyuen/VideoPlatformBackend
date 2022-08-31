@@ -5,6 +5,7 @@ import com.example.model.Video;
 import com.example.model.VideoChunk;
 import com.example.model.VideoStateType;
 import com.example.repository.VideoRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +15,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class VideoService {
-    @Autowired
-    private VideoRepository videoRepository;
-    @Autowired
-    private StorageService storageService;
-    @Autowired
-    private VideoChunkService videoChunkService;
+    private final VideoRepository videoRepository;
+    private final StorageService storageService;
+    private final VideoChunkService videoChunkService;
 
     public boolean isVideoMetaExists(String hash) {
         Optional<Video> videoOptional = videoRepository.findVideoByHash(hash);
@@ -67,7 +66,7 @@ public class VideoService {
     @Transactional
     public void mergeChunksByHash(String hash) throws MergeFailureException, IOException {
         Optional<Video> videoOptional = videoRepository.findVideoByHashForUpdate(hash);
-        if (!videoOptional.isPresent()) {
+        if (videoOptional.isEmpty()) {
             throw new MergeFailureException("Cannot find the video by hash");
         }
         Video video = videoOptional.get();

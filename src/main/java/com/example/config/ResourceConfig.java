@@ -11,10 +11,13 @@ public class ResourceConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
+                // for Windows system:
+//                .addResourceHandler("/storage/**")
+//                .addResourceLocations("file:/" +
+//                        Paths.get("./storage/").toAbsolutePath().normalize().toString()
+//                                .replace(" \\", "/") + "/");
+                // for Unix system:
                 .addResourceHandler("/storage/**")
-                // for Windows System, use "file:///", for Unix System, use "file:/"
-                .addResourceLocations("file:/" +
-                        Paths.get("./storage/").toAbsolutePath().normalize().toString()
-                                .replace("\\", "/") + "/");
+                .addResourceLocations("file:" + Paths.get("./storage/").toAbsolutePath().normalize() + "/");
     }
 }

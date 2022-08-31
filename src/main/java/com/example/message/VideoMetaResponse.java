@@ -1,17 +1,13 @@
 package com.example.message;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class VideoMetaResponse {
-    private String title;
-    private String description;
-    private String url;
-    private String avatarImg;
-    VideoMetaResponse(String title, String desc, String url, String img) {
-        this.title = title;
-        this.description = desc;
-        this.url = url;
-        this.avatarImg = img;
-    }
+    private final String title;
+    private final String description;
+    private final String url;
+    private final String avatarImg;
 }
