@@ -20,7 +20,6 @@ Backend is a RESTful service using Spring Boot, Spring Data JPA, MySQL, and Spri
 ![player](public/player.png)
 
 ## Email verification with expiry
-![verify-diagram](public/signup-diagram.png)
 ![login](public/login.png)
 ![mail](public/mail.png)
 
